@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/react-tetris/static/css/main.6b7ee09b.chunk.css",
+    "main.js": "/react-tetris/static/js/main.d2f3f477.chunk.js",
+    "main.js.map": "/react-tetris/static/js/main.d2f3f477.chunk.js.map",
+    "runtime~main.js": "/react-tetris/static/js/runtime~main.9a7ed037.js",
+    "runtime~main.js.map": "/react-tetris/static/js/runtime~main.9a7ed037.js.map",
+    "static/js/2.c4b5ed7a.chunk.js": "/react-tetris/static/js/2.c4b5ed7a.chunk.js",
+    "static/js/2.c4b5ed7a.chunk.js.map": "/react-tetris/static/js/2.c4b5ed7a.chunk.js.map",
+    "index.html": "/react-tetris/index.html",
+    "precache-manifest.2ef17dc6cdda424f14ea6fe81c38529c.js": "/react-tetris/precache-manifest.2ef17dc6cdda424f14ea6fe81c38529c.js",
+    "service-worker.js": "/react-tetris/service-worker.js",
+    "static/css/main.6b7ee09b.chunk.css.map": "/react-tetris/static/css/main.6b7ee09b.chunk.css.map",
+    "static/media/index.css": "/react-tetris/static/media/Pixel-LCD-7.e2897552.woff",
+    "static/media/bg.png": "/react-tetris/static/media/bg.f8748107.png"
+  }
+}
