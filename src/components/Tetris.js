@@ -17,6 +17,8 @@ import StartButton from './StartButton';
 const Tetris = () => {
   const [dropTime, setDropTime] = useState(null);
   const [gameOver, setGameOver] = useState(false);
+  const [touchPos, setTouchPos] = useState({ startX: 0, startY: 0, endX: 0, endY: 0 });
+
 
   const [player, updatePlayerPos, resetPlayer, playerRotate] = usePlayer();
   const [stage, setStage, rowsCleared] = useStage(player, resetPlayer);
@@ -37,6 +39,42 @@ const Tetris = () => {
       // Activate the interval again when user releases down arrow.
       if (keyCode === 40) {
         setDropTime(1000 / (level + 1));
+      }
+    }
+  };
+
+  const handleTouchStart = (e) => {
+    setTouchPos({
+      startX: e.touches[0].clientX,
+      startY: e.touches[0].clientY,
+      endX: 0,
+      endY: 0,
+    });
+  };
+
+  const handleTouchMove = (e) => {
+    setTouchPos({
+      ...touchPos,
+      endX: e.touches[0].clientX,
+      endY: e.touches[0].clientY,
+    });
+  };
+  
+  const handleTouchEnd = () => {
+    const dx = touchPos.endX - touchPos.startX;
+    const dy = touchPos.endY - touchPos.startY;
+  
+    if (Math.abs(dx) > Math.abs(dy)) {
+      if (dx > 0) {
+        movePlayer(1); // Move right
+      } else {
+        movePlayer(-1); // Move left
+      }
+    } else {
+      if (dy > 0) {
+        dropPlayer(); // Move down
+      } else {
+        playerRotate(stage, 1); // Rotate
       }
     }
   };
@@ -106,6 +144,9 @@ const Tetris = () => {
       tabIndex="0"
       onKeyDown={e => move(e)}
       onKeyUp={keyUp}
+      onTouchStart={handleTouchStart}
+      onTouchMove={handleTouchMove}
+      onTouchEnd={handleTouchEnd}
     >
       <StyledTetris>
         <Stage stage={stage} />
