@@ -1,19 +1,19 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "8224cd07fb92cd98d5286cda2ee3836c",
+    "revision": "35057dd750c2c868446f9fb4d132f693",
     "url": "/react-tetris/index.html"
   },
   {
-    "revision": "279088691a29ea90896f",
+    "revision": "2b92bbdfb8a35cfa733f",
     "url": "/react-tetris/static/css/main.6b7ee09b.chunk.css"
   },
   {
-    "revision": "205ed7c73228de915bd6",
-    "url": "/react-tetris/static/js/2.c4b5ed7a.chunk.js"
+    "revision": "103e5dbaceaccca9d545",
+    "url": "/react-tetris/static/js/2.5121da65.chunk.js"
   },
   {
-    "revision": "279088691a29ea90896f",
-    "url": "/react-tetris/static/js/main.63fde911.chunk.js"
+    "revision": "2b92bbdfb8a35cfa733f",
+    "url": "/react-tetris/static/js/main.b2028d32.chunk.js"
   },
   {
     "revision": "9f8e8f985e23fe474e69",
