@@ -17,7 +17,9 @@ import StartButton from './StartButton';
 const Tetris = () => {
     const [dropTime, setDropTime] = useState(null);
     const [gameOver, setGameOver] = useState(false);
+    const [touchStartX, setTouchStartX] = useState(null);
     const [touchStartY, setTouchStartY] = useState(null);
+    const [touchEndX, setTouchEndX] = useState(null);
     const [touchEndY, setTouchEndY] = useState(null);
 
 
@@ -118,23 +120,39 @@ const Tetris = () => {
     };
 
     const handleTouchStart = event => {
-        setTouchStartY(event.touches[0].clientY);
-      };
-
-    const handleTouchMove = (event) => {
+        setTouchStartX(event.touches[0].clientX);
         setTouchStartY(event.touches[0].clientY);
     };
 
     const handleTouchEnd = event => {
+        setTouchEndX(event.changedTouches[0].clientX);
         setTouchEndY(event.changedTouches[0].clientY);
+        
+        const deltaX = touchEndX - touchStartX;
         const deltaY = touchEndY - touchStartY;
-    
-        if (deltaY > 0) {
-          dropPlayer();
-        } else if (deltaY < 0) {
-          playerRotate(stage, 1);
+        
+        // Seuil minimum pour détecter un mouvement
+        const minSwipeDistance = 30;
+        
+        if (!gameOver) {
+            // Mouvement horizontal
+            if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > minSwipeDistance) {
+                if (deltaX > 0) {
+                    movePlayer(1); // Droite
+                } else {
+                    movePlayer(-1); // Gauche
+                }
+            }
+            // Mouvement vertical
+            else if (Math.abs(deltaY) > Math.abs(deltaX) && Math.abs(deltaY) > minSwipeDistance) {
+                if (deltaY > 0) {
+                    dropPlayer(); // Bas
+                } else {
+                    playerRotate(stage, 1); // Rotation
+                }
+            }
         }
-      };
+    };
 
     return (
         <StyledTetrisWrapper
@@ -143,8 +161,8 @@ const Tetris = () => {
             onKeyDown={e => move(e)}
             onKeyUp={keyUp}
             onTouchStart={handleTouchStart}
-            onTouchMove={handleTouchMove}
             onTouchEnd={handleTouchEnd}
+            ref={tetrisWrapperRef}
         >
             <StyledTetris>
                 <Stage stage={stage} />
