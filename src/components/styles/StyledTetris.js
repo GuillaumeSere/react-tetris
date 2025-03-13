@@ -25,6 +25,7 @@ export const StyledTetris = styled.div`
     padding: 0 20px;
   }
 
+
   @media (max-width: 712px){
     flex-direction:column;
 
@@ -33,3 +34,4 @@ export const StyledTetris = styled.div`
   }
   }
 `;
+

@@ -131,24 +131,25 @@ const Tetris = () => {
         const deltaX = touchEndX - touchStartX;
         const deltaY = touchEndY - touchStartY;
         
-        // Seuil minimum pour détecter un mouvement
         const minSwipeDistance = 30;
         
         if (!gameOver) {
             // Mouvement horizontal
             if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > minSwipeDistance) {
                 if (deltaX > 0) {
-                    movePlayer(1); // Droite
+                    movePlayer(1);
                 } else {
-                    movePlayer(-1); // Gauche
+                    movePlayer(-1);
                 }
             }
             // Mouvement vertical
             else if (Math.abs(deltaY) > Math.abs(deltaX) && Math.abs(deltaY) > minSwipeDistance) {
                 if (deltaY > 0) {
-                    dropPlayer(); // Bas
+                    dropPlayer();
+                    // Réactiver le dropTime après le mouvement rapide vers le bas
+                    setDropTime(1000 / (level + 1));
                 } else {
-                    playerRotate(stage, 1); // Rotation
+                    playerRotate(stage, 1);
                 }
             }
         }
