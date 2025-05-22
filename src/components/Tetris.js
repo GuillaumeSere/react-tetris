@@ -1,7 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react';
+import "../index.css";
 
 import { createStage, checkCollision } from '../gameHelpers';
-import { StyledTetrisWrapper, StyledTetris } from './styles/StyledTetris';
+import { StyledTetrisWrapper, StyledTetris, StyledTitle } from './styles/StyledTetris';
 
 // Custom Hooks
 import { useInterval } from '../hooks/useInterval';
@@ -165,6 +166,7 @@ const Tetris = () => {
             onTouchEnd={handleTouchEnd}
             ref={tetrisWrapperRef}
         >
+            <StyledTitle>TETRIS</StyledTitle>
             <StyledTetris>
                 <Stage stage={stage} />
                 <aside>
