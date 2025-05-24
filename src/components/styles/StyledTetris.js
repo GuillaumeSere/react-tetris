@@ -16,12 +16,17 @@ export const StyledTitle = styled.h1`
   top: -10px;
   left: 50%;
   transform: translateX(-50%);
-  color: white;
   font-size: 3rem;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
   z-index: 10;
   text-align: center;
   font-family: Pixel, Arial, Helvetica, sans-serif;
+  color: transparent;
+  background: linear-gradient(135deg, #FF0000 0%, #FFA500 16.67%, #FFFF00 33.33%, #008000 50%, #0000FF 66.67%, #800080 83.33%);
+  background-size: 100% 100%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
   
   @media (max-width: 712px) {
     font-size: 2rem;
