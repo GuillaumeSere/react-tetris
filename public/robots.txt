@@ -1,1 +1,4 @@
 User-agent: *
+Allow: /
+
+Sitemap: https://tetris-60.vercel.app/sitemap.xml
